@@ -3,6 +3,7 @@ import 'package:prototype/models/user.dart';
 import 'package:prototype/screens/auth/signup.dart';
 import 'package:prototype/screens/main/home.dart';
 import 'package:prototype/screens/main/posts/add.dart';
+import 'package:prototype/screens/main/profile/profile.dart';
 import 'package:provider/provider.dart';
 
 class Wrapper extends StatelessWidget {
@@ -21,7 +22,11 @@ class Wrapper extends StatelessWidget {
     //show main system routes
     return MaterialApp(
       initialRoute: '/',
-      routes: {'/': (context) => Home(), '/add': (context) => Add()},
+      routes: {
+        '/': (context) => Home(),
+        '/add': (context) => Add(),
+        '/profile': (context) => Profile()
+      },
     );
   }
 }
