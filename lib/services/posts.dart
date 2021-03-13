@@ -1,19 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:prototype/models/post.dart';
+import 'package:practice/models/post.dart';
 
 class PostService {
-  List<PostModel> _postListFromSnapshots(QuerySnapshot snapshot) {
+  List<PostModel> _postListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return PostModel(
         id: doc.id,
-        orgName: doc.data()['orgName'] ?? '',
-        orgContact: doc.data()['orgName'] ?? '',
-        jobType: doc.data()['jobType'] ?? '',
-        jobDescription: doc.data()['jobDescription'] ?? '',
-        Apply_by: doc.data()['Apply_by'] ?? 0,
-        Posted_On: doc.data()['Posted_on'] ?? 0,
+        orgName: doc.data()['Organization Name'] ?? '',
+        orgContact: doc.data()['Organization Contact'] ?? '',
+        jobType: doc.data()['Job Type'] ?? '',
+        jobDescription: doc.data()['Job Description'] ?? '',
       );
     }).toList();
   }
@@ -22,19 +19,19 @@ class PostService {
     await FirebaseFirestore.instance.collection("Posts").add({
       'Organization Name': orgName,
       'Organization Contact': orgContact,
-      'Job Description': jobType,
-      'Job Type': jobDescription,
+      'Job Description': jobDescription,
+      'Job Type': jobType,
       'Posted On': FieldValue.serverTimestamp(),
       'Apply by': FieldValue.serverTimestamp(),
-      'User id': FirebaseAuth.instance.currentUser.uid,
+      'User_id': FirebaseAuth.instance.currentUser.uid,
     });
   }
 
   Stream<List<PostModel>> getPostsByUser(uid) {
     return FirebaseFirestore.instance
         .collection("Posts")
-        .where('User id', isEqualTo: uid)
+        .where('User_id', isEqualTo: uid)
         .snapshots()
-        .map(_postListFromSnapshots);
+        .map(_postListFromSnapshot);
   }
 }

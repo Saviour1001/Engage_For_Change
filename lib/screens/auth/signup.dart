@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prototype/services/auth.dart';
+import 'package:practice/services/auth.dart';
 
 class SignUp extends StatefulWidget {
   SignUp({Key key}) : super(key: key);

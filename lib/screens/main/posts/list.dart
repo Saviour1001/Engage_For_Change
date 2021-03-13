@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:prototype/models/post.dart';
+import 'package:practice/models/post.dart';
 
 class ListPosts extends StatefulWidget {
   ListPosts({Key key}) : super(key: key);
@@ -21,6 +21,7 @@ class _ListPostsState extends State<ListPosts> {
         return ListTile(
           title: Text(post.orgName),
           subtitle: Text(post.orgContact),
+          trailing: Text(post.jobType),
         );
       },
     );

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:prototype/models/user.dart';
-import 'package:prototype/screens/auth/signup.dart';
+import 'package:practice/models/user.dart';
+import 'package:practice/screens/auth/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:prototype/screens/wrapper.dart';
-import 'package:prototype/services/auth.dart';
+import 'package:practice/screens/wrapper.dart';
+import 'package:practice/services/auth.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

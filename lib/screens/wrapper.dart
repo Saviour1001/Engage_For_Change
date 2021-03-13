@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:prototype/models/user.dart';
-import 'package:prototype/screens/auth/signup.dart';
-import 'package:prototype/screens/main/home.dart';
-import 'package:prototype/screens/main/posts/add.dart';
-import 'package:prototype/screens/main/profile/profile.dart';
+import 'package:practice/models/user.dart';
+import 'package:practice/screens/auth/signup.dart';
+import 'package:practice/screens/main/home.dart';
+import 'package:practice/screens/main/posts/add.dart';
+import 'package:practice/screens/main/profile/edit.dart';
+import 'package:practice/screens/main/profile/profile.dart';
 import 'package:provider/provider.dart';
 
 class Wrapper extends StatelessWidget {
@@ -25,7 +26,8 @@ class Wrapper extends StatelessWidget {
       routes: {
         '/': (context) => Home(),
         '/add': (context) => Add(),
-        '/profile': (context) => Profile()
+        '/profile': (context) => Profile(),
+        '/edit': (context) => Edit()
       },
     );
   }
