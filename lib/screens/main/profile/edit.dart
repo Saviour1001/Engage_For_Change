@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'package:practice/services/user.dart';
+import 'package:day12_login/services/user.dart';
 
 class Edit extends StatefulWidget {
   Edit({Key key}) : super(key: key);

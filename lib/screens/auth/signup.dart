@@ -1,48 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:practice/services/auth.dart';
+import 'package:day12_login/components/rounded_button.dart';
+import 'package:day12_login/components/rounded_input_field.dart';
+import 'package:day12_login/components/rounded_password_field.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:day12_login/services/auth.dart';
+import 'package:day12_login/screens/Signup/components/background.dart';
 
-class SignUp extends StatefulWidget {
-  SignUp({Key key}) : super(key: key);
-
+class SignUpScreen extends StatefulWidget {
+  SignUpScreen({Key key}) : super(key: key);
   @override
-  _SignUpState createState() => _SignUpState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpScreenState extends State<SignUpScreen> {
+  @override
   final AuthService _authService = AuthService();
   String email = '';
   String password = '';
-
-  @override
   Widget build(BuildContext context) {
+    // static MediaQueryData of(BuildContext context, { bool nullOk = false });
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.blue, elevation: 8, title: Text("Sign Up")),
-        body: Container(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
-          child: new Form(
-              child: Column(
-            children: [
-              TextFormField(
-                onChanged: (val) => setState(() {
-                  email = val;
-                }),
-              ),
-              TextFormField(
-                onChanged: (val) => setState(() {
-                  password = val;
-                }),
-              ),
-              ElevatedButton(
-                  child: Text('Signup'),
-                  onPressed: () async =>
-                      {_authService.signUp(email, password)}),
-              ElevatedButton(
-                  child: Text('Signin'),
-                  onPressed: () async =>
-                      {_authService.signIn(email, password)}),
-            ],
-          )),
-        ));
+        body: Background(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "SIGNUP",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: size.height * 0.03),
+            SvgPicture.asset(
+              "assets/icons/signup.svg",
+              height: size.height * 0.35,
+            ),
+            RoundedInputField(
+              hintText: "Your Email",
+              onChanged: (val) => setState(() {
+                email = val;
+              }),
+            ),
+            RoundedPasswordField(
+              onChanged: (value) => setState(() {
+                password = value;
+              }),
+            ),
+            RoundedButton(
+              text: "SIGNUP",
+              press: () async => {
+                _authService.signUp(email, password),
+                Navigator.pushNamed(context, '/')
+              },
+            ),
+            Divider(),
+          ],
+        ),
+      ),
+    ));
   }
 }

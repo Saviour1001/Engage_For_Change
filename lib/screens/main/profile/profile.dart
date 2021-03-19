@@ -1,10 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:practice/models/user.dart';
-import 'package:practice/screens/main/posts/list.dart';
-import 'package:practice/services/posts.dart';
-import 'package:practice/services/user.dart';
+import 'package:day12_login/models/user.dart';
+import 'package:day12_login/screens/main/posts/list.dart';
+import 'package:day12_login/services/posts.dart';
+import 'package:day12_login/services/user.dart';
 
 class Profile extends StatefulWidget {
   Profile({Key key}) : super(key: key);

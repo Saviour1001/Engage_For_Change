@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:practice/models/user.dart';
-import 'package:practice/screens/auth/signup.dart';
+import 'package:day12_login/models/user.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:practice/screens/wrapper.dart';
-import 'package:practice/services/auth.dart';
+import 'package:day12_login/screens/wrapper.dart';
+import 'package:day12_login/services/auth.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
