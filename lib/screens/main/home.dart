@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
+=======
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:day12_login/screens/home/items.dart';
+import 'package:day12_login/services/feed1.dart';
+>>>>>>> Stashed changes
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:practice/screens/home/feed.dart';
@@ -26,6 +32,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xff007580),
         title: Text("Home"),
       ),
       floatingActionButton: FloatingActionButton(
