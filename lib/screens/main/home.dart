@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:day12_login/screens/home/explain.dart';
 import 'package:day12_login/screens/home/items.dart';
 import 'package:day12_login/services/feed1.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -50,6 +51,12 @@ class _HomeState extends State<Home> {
               onTap: () {
                 Navigator.pushNamed(context, '/profile',
                     arguments: FirebaseAuth.instance.currentUser.uid);
+              },
+            ),
+            ListTile(
+              title: Text("Tutorial"),
+              onTap: () {
+                Navigator.pushNamed(context, '/explain');
               },
             ),
             ListTile(

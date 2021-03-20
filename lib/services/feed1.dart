@@ -126,7 +126,7 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
                                                           FontWeight.bold),
                                                 ),
                                                 Text(
-                                                  "Address ${querySnapshot.docs[i].data()['Address']}",
+                                                  "Address: ${querySnapshot.docs[i].data()['Address']}",
                                                   style: TextStyle(
                                                       fontSize: 15.0,
                                                       fontWeight:
@@ -140,7 +140,7 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
                                                           FontWeight.bold),
                                                 ),
                                                 Text(
-                                                  "Description ${querySnapshot.docs[i].data()['Job Description']}",
+                                                  "Description: ${querySnapshot.docs[i].data()['Job Description']}",
                                                   style: TextStyle(
                                                       fontSize: 15.0,
                                                       fontWeight:

@@ -11,6 +11,7 @@ import 'package:day12_login/screens/main/profile/edit.dart';
 import 'package:day12_login/screens/main/profile/profile.dart';
 import 'package:provider/provider.dart';
 import 'package:day12_login/screens/Welcome/welcome_screen.dart';
+import 'package:day12_login/screens/home/explain.dart';
 
 class Wrapper extends StatelessWidget {
   const Wrapper({Key key}) : super(key: key);
@@ -38,6 +39,7 @@ class Wrapper extends StatelessWidget {
         '/aboutUs': (context) => AboutUs(),
         '/exp': (context) => LoadDataFromFirestore(),
         '/magnified': (context) => magnified(),
+        '/explain': (context) => explain(),
       },
     );
   }

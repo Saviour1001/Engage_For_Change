@@ -50,7 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               text: "SIGNUP",
               press: () async => {
                 _authService.signUp(email, password),
-                Navigator.pushNamed(context, '/')
+                Navigator.pushNamed(context, '/'),
               },
             ),
             Divider(),
