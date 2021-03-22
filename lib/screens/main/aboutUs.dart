@@ -52,10 +52,11 @@ class AboutUs extends StatelessWidget {
                   ListTile(
                     leading: CircleAvatar(
                       // radius: 10,
-                      backgroundImage: AssetImage('assets/about_images/me.png'),
+                      backgroundImage:
+                          AssetImage('assets/about_images/Ankit.jpeg'),
                     ),
                     title: Text(
-                      "Avish Mehta",
+                      "Ankit Agarwal",
                     ),
                   )
                 ],
