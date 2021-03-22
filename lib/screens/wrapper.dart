@@ -1,3 +1,4 @@
+import 'package:day12_login/screens/home/ideation.dart';
 import 'package:day12_login/screens/main/aboutUs.dart';
 import 'package:day12_login/screens/main/posts/magnified.dart';
 import 'package:day12_login/services/feed1.dart';
@@ -31,6 +32,10 @@ class Wrapper extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Home(),
+<<<<<<< Updated upstream
+=======
+        '/idea': (context) => idea(),
+>>>>>>> Stashed changes
         '/add': (context) => Add(),
         '/profile': (context) => Profile(),
         '/edit': (context) => Edit(),
@@ -38,8 +43,12 @@ class Wrapper extends StatelessWidget {
         '/login': (context) => SignUp(),
         '/aboutUs': (context) => AboutUs(),
         '/exp': (context) => LoadDataFromFirestore(),
+<<<<<<< Updated upstream
         '/magnified': (context) => magnified(),
         '/explain': (context) => explain(),
+=======
+        '/explain': (context) => idea(),
+>>>>>>> Stashed changes
       },
     );
   }
