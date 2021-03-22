@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:day12_login/models/user.dart';
 import 'package:day12_login/screens/main/posts/list.dart';
 import 'package:day12_login/services/posts.dart';
@@ -21,6 +22,10 @@ class _ProfileState extends State<Profile> {
     final String uid = ModalRoute.of(context).settings.arguments;
     return MultiProvider(
         providers: [
+          StreamProvider.value(
+            value: _userService.isFollowing(
+                FirebaseAuth.instance.currentUser.uid, uid),
+          ),
           StreamProvider.value(
             value: _postService.getPostsByUser(uid),
           ),
@@ -64,11 +69,31 @@ class _ProfileState extends State<Profile> {
                                                 .profileImageUrl),
                                       )
                                     : Icon(Icons.person, size: 50),
-                                FlatButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(context, '/edit');
-                                    },
-                                    child: Text("Edit Profile"))
+                                if (FirebaseAuth.instance.currentUser.uid ==
+                                    uid)
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(context, '/edit');
+                                      },
+                                      child: Text("Edit Profile"))
+                                else if (FirebaseAuth
+                                            .instance.currentUser.uid !=
+                                        uid &&
+                                    !Provider.of<bool>(context))
+                                  TextButton(
+                                      onPressed: () {
+                                        _userService.followUser(uid);
+                                      },
+                                      child: Text("Follow"))
+                                else if (FirebaseAuth
+                                            .instance.currentUser.uid !=
+                                        uid &&
+                                    Provider.of<bool>(context))
+                                  TextButton(
+                                      onPressed: () {
+                                        _userService.unfollowUser(uid);
+                                      },
+                                      child: Text("Unfollow")),
                               ]),
                           Align(
                             alignment: Alignment.centerLeft,
