@@ -6,6 +6,8 @@ class Item1 extends StatelessWidget {
   const Item1({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+
     return SingleChildScrollView(
       child: Container(
         decoration: BoxDecoration(
@@ -26,7 +28,7 @@ class Item1 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/ideation_images/1.png',
-              height: 635.0,
+              height: screenSize.height * (0.9),
               fit: BoxFit.cover,
             )
           ],
@@ -40,6 +42,7 @@ class Item2 extends StatelessWidget {
   const Item2({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Container(
         decoration: BoxDecoration(
@@ -60,7 +63,7 @@ class Item2 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/ideation_images/2.png',
-              height: 635.0,
+              height: screenSize.height * (0.9),
               fit: BoxFit.cover,
             )
           ],
@@ -74,6 +77,7 @@ class Item3 extends StatelessWidget {
   const Item3({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Container(
         decoration: BoxDecoration(
@@ -94,7 +98,7 @@ class Item3 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/ideation_images/3.png',
-              height: 635.0,
+              height: screenSize.height * (0.9),
               fit: BoxFit.cover,
             )
           ],
@@ -108,6 +112,7 @@ class Item4 extends StatelessWidget {
   const Item4({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Container(
         decoration: BoxDecoration(
@@ -128,7 +133,7 @@ class Item4 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/explainer/1.png',
-              height: 635.0,
+              height: screenSize.height * (0.9),
               fit: BoxFit.cover,
             )
           ],
@@ -142,6 +147,7 @@ class Item5 extends StatelessWidget {
   const Item5({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Container(
         decoration: BoxDecoration(
@@ -162,7 +168,7 @@ class Item5 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/explainer/2.png',
-              height: 635.0,
+              height: screenSize.height * (0.9),
               fit: BoxFit.cover,
             )
           ],
@@ -176,6 +182,7 @@ class Item6 extends StatelessWidget {
   const Item6({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Container(
         decoration: BoxDecoration(
@@ -196,7 +203,7 @@ class Item6 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/explainer/3.png',
-              height: 635.0,
+              height: screenSize.height * (0.9),
               fit: BoxFit.cover,
             )
           ],
@@ -230,6 +237,7 @@ class idea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       // appBar: AppBar(
       //   backgroundColor: Color(0xff007580),
@@ -239,7 +247,7 @@ class idea extends StatelessWidget {
         children: <Widget>[
           CarouselSlider(
             options: CarouselOptions(
-              height: 635,
+              height: screenSize.height * (0.9),
               autoPlay: true,
               autoPlayAnimationDuration: Duration(milliseconds: 500),
               autoPlayInterval: Duration(seconds: 3),
@@ -274,7 +282,7 @@ class idea extends StatelessWidget {
                 "Skip Tutorial ",
                 style: TextStyle(
                     fontStyle: FontStyle.italic,
-                    fontSize: 20,
+                    fontSize: screenSize.height * (0.04),
                     fontWeight: FontWeight.bold),
               )),
         ],

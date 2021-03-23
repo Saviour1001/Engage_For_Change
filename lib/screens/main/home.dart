@@ -26,66 +26,90 @@ class _HomeState extends State<Home> {
     });
   }
 
+  Future<bool> _onWillPop() async {
+    return (await showDialog(
+          context: context,
+          builder: (context) => new AlertDialog(
+            title: new Text('Are you sure?'),
+            content: new Text('Do you want to exit an App'),
+            actions: <Widget>[
+              new FlatButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: new Text('No'),
+              ),
+              new FlatButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: new Text('Yes'),
+              ),
+            ],
+          ),
+        )) ??
+        false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff007580),
-        title: Text("Home"),
-      ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/add');
-          },
-          child: Icon(Icons.add)),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-                child: Image.asset(
-              'assets/home_images/pic1.png',
-              fit: BoxFit.cover,
-            )),
-            ListTile(
-              title: Text('Profile'),
-              onTap: () {
-                Navigator.pushNamed(context, '/profile',
-                    arguments: FirebaseAuth.instance.currentUser.uid);
+    return new WillPopScope(
+        onWillPop: _onWillPop,
+        child: new Scaffold(
+          appBar: AppBar(
+            backgroundColor: Color(0xff007580),
+            title: Text("Home"),
+          ),
+          floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/add');
               },
+              child: Icon(Icons.add)),
+          drawer: Drawer(
+            child: ListView(
+              children: <Widget>[
+                DrawerHeader(
+                    child: Image.asset(
+                  'assets/home_images/pic1.png',
+                  fit: BoxFit.cover,
+                )),
+                ListTile(
+                  title: Text('Profile'),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/profile',
+                        arguments: FirebaseAuth.instance.currentUser.uid);
+                  },
+                ),
+                ListTile(
+                  title: Text("Tutorial"),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/explain');
+                  },
+                ),
+                ListTile(
+                  title: Text('About us'),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/aboutUs');
+                  },
+                ),
+                ListTile(
+                  title: Text('Logout'),
+                  onTap: () async {
+                    _authService.signOut();
+                  },
+                ),
+              ],
             ),
-            ListTile(
-              title: Text("Tutorial"),
-              onTap: () {
-                Navigator.pushNamed(context, '/explain');
-              },
-            ),
-            ListTile(
-              title: Text('About us'),
-              onTap: () {
-                Navigator.pushNamed(context, '/aboutUs');
-              },
-            ),
-            ListTile(
-              title: Text('Logout'),
-              onTap: () async {
-                _authService.signOut();
-              },
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: onTabPressed,
-        currentIndex: _currentIndex,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
-          BottomNavigationBarItem(icon: new Icon(Icons.home), label: 'home'),
-          BottomNavigationBarItem(
-              icon: new Icon(Icons.search), label: 'search'),
-        ],
-      ),
-      body: _children[_currentIndex],
-    );
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            onTap: onTabPressed,
+            currentIndex: _currentIndex,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            items: [
+              BottomNavigationBarItem(
+                  icon: new Icon(Icons.home), label: 'home'),
+              BottomNavigationBarItem(
+                  icon: new Icon(Icons.search), label: 'search'),
+            ],
+          ),
+          body: _children[_currentIndex],
+        ));
   }
 }

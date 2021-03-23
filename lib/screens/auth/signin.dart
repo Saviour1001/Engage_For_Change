@@ -198,13 +198,9 @@ class _SignUpState extends State<SignUp> {
                   //   },
                   // ),
                   FadeAnimation(
-                      1.5,
-                      Text(
-                        "Forgot Password?",
-                        style:
-                            TextStyle(color: Color.fromRGBO(143, 148, 251, 1)),
-                      )),
-                  SizedBox(height: size.height * 0.03),
+                    1.5,
+                    SizedBox(height: size.height * 0.03),
+                  )
                   // FadeAnimation(
                   //   1.5,
                   //   RichText(

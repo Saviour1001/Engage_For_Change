@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:day12_login/components/rounded_button.dart';
 import 'package:day12_login/components/rounded_input_field.dart';
 import 'package:day12_login/components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:day12_login/services/auth.dart';
 import 'package:day12_login/screens/Signup/components/background.dart';
+import 'package:day12_login/services/auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SignUpScreen extends StatefulWidget {
   SignUpScreen({Key key}) : super(key: key);
@@ -17,6 +17,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final AuthService _authService = AuthService();
   String email = '';
   String password = '';
+  bool _obscureText = true;
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
   Widget build(BuildContext context) {
     // static MediaQueryData of(BuildContext context, { bool nullOk = false });
     Size size = MediaQuery.of(context).size;
@@ -38,7 +45,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
             RoundedInputField(
               hintText: "Your Email",
               onChanged: (val) => setState(() {
-                email = val;
+                String emails =
+                    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
+                bool isValid = RegExp(emails).hasMatch(val);
+                if (isValid == true) {
+                  email = val;
+                } else {
+                  email = null;
+                }
               }),
             ),
             RoundedPasswordField(
