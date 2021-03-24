@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:day12_login/models/user.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AuthService {
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -15,6 +18,11 @@ class AuthService {
 
   Future signUp(email, password) async {
     try {
+      Fluttertoast.showToast(
+          msg: "Signing you up!",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1);
       UserCredential user = await auth.createUserWithEmailAndPassword(
           email: email, password: password);
 
@@ -25,9 +33,19 @@ class AuthService {
       _userFromFirebaseUser(user.user);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
+        Fluttertoast.showToast(
+            msg: "The password is too weak.",
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1);
         print('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+        Fluttertoast.showToast(
+            msg: "This email already exists. Use Another",
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1);
+        print('The account already exists for that email.Try another! ');
       }
     } catch (e) {
       print(e);
@@ -36,12 +54,22 @@ class AuthService {
 
   Future signIn(email, password) async {
     try {
+      Fluttertoast.showToast(
+          msg: "Logging you in!! Welcome Back !",
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1);
       User user = (await auth.signInWithEmailAndPassword(
           email: email, password: password)) as User;
 
       _userFromFirebaseUser(user);
     } on FirebaseAuthException catch (e) {
       print(e);
+      Fluttertoast.showToast(
+          msg: e.toString(),
+          toastLength: Toast.LENGTH_LONG,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 3);
     } catch (e) {
       print(e);
     }

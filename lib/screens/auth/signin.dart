@@ -1,6 +1,8 @@
 // import 'dart:js';
 
 import 'package:day12_login/FadeAnimation.dart';
+import 'package:day12_login/components/rounded_input_field.dart';
+import 'package:day12_login/components/rounded_password_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -122,36 +124,47 @@ class _SignUpState extends State<SignUp> {
                             ]),
                         child: Column(
                           children: <Widget>[
-                            Container(
-                              padding: EdgeInsets.all(8.0),
-                              decoration: BoxDecoration(
-                                  border: Border(
-                                      bottom:
-                                          BorderSide(color: Colors.grey[100]))),
-                              child: TextField(
-                                onChanged: (val) => setState(() {
-                                  email = val;
-                                }),
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Email",
-                                    hintStyle:
-                                        TextStyle(color: Colors.grey[400])),
-                              ),
+                            // Container(
+                            //   padding: EdgeInsets.all(8.0),
+                            //   decoration: BoxDecoration(
+                            //       border: Border(
+                            //           bottom:
+                            //               BorderSide(color: Colors.grey[100]))),
+                            //   child: TextField(
+                            //     onChanged: (val) => setState(() {
+                            //       email = val;
+                            //     }),
+                            //     decoration: InputDecoration(
+                            //         border: InputBorder.none,
+                            //         hintText: "Email",
+                            //         hintStyle:
+                            //             TextStyle(color: Colors.grey[400])),
+                            //   ),
+                            // ),
+                            RoundedInputField(
+                              hintText: "Your Email",
+                              onChanged: (val) => setState(() {
+                                email = val;
+                              }),
                             ),
-                            Container(
-                              padding: EdgeInsets.all(8.0),
-                              child: TextField(
-                                onChanged: (val) => setState(() {
-                                  password = val;
-                                }),
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Password",
-                                    hintStyle:
-                                        TextStyle(color: Colors.grey[400])),
-                              ),
-                            )
+                            RoundedPasswordField(
+                              onChanged: (value) => setState(() {
+                                password = value;
+                              }),
+                            ),
+                            // Container(
+                            //   padding: EdgeInsets.all(8.0),
+                            //   child: TextField(
+                            //     onChanged: (val) => setState(() {
+                            //       password = val;
+                            //     }),
+                            //     decoration: InputDecoration(
+                            //         border: InputBorder.none,
+                            //         hintText: "Password",
+                            //         hintStyle:
+                            //             TextStyle(color: Colors.grey[400])),
+                            //   ),
+                            // )
                           ],
                         ),
                       )),
