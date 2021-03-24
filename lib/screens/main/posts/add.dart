@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:day12_login/services/posts.dart';
+import 'package:back_button_interceptor/back_button_interceptor.dart';
 
 class Add extends StatefulWidget {
   Add({Key key}) : super(key: key);
@@ -29,7 +30,7 @@ class _AddState extends State<Add> {
                 child: new Text('No'),
               ),
               new TextButton(
-                onPressed: () => Navigator.of(context).pop(true),
+                onPressed: () => Navigator.pushNamed(context, '/'),
                 child: new Text('Yes'),
               ),
             ],
@@ -40,6 +41,22 @@ class _AddState extends State<Add> {
 
   final PostService _postService = PostService();
   @override
+  void initState() {
+    super.initState();
+    BackButtonInterceptor.add(myInterceptor);
+  }
+
+  @override
+  void dispose() {
+    BackButtonInterceptor.remove(myInterceptor);
+    super.dispose();
+  }
+
+  bool myInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
+    Navigator.pushNamed(context, '/');
+    return true;
+  }
+
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _onWillPop,

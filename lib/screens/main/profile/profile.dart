@@ -1,3 +1,4 @@
+import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -18,6 +19,22 @@ class _ProfileState extends State<Profile> {
   UserService _userService = UserService();
 
   @override
+  void initState() {
+    super.initState();
+    BackButtonInterceptor.add(myInterceptor);
+  }
+
+  @override
+  void dispose() {
+    BackButtonInterceptor.remove(myInterceptor);
+    super.dispose();
+  }
+
+  bool myInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
+    Navigator.pushNamed(context, '/');
+    return true;
+  }
+
   Widget build(BuildContext context) {
     final String uid = ModalRoute.of(context).settings.arguments;
     return MultiProvider(

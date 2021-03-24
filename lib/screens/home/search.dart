@@ -1,3 +1,4 @@
+import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:day12_login/screens/main/profile/list.dart';
@@ -14,6 +15,22 @@ class _SearchState extends State<Search> {
   UserService _userService = UserService();
   String search = '';
   @override
+  void initState() {
+    super.initState();
+    BackButtonInterceptor.add(myInterceptor);
+  }
+
+  @override
+  void dispose() {
+    BackButtonInterceptor.remove(myInterceptor);
+    super.dispose();
+  }
+
+  bool myInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
+    Navigator.pushNamed(context, '/');
+    return true;
+  }
+
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         child: Column(children: [

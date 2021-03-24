@@ -174,7 +174,7 @@ class _SignUpState extends State<SignUp> {
                               // ignore: sdk_version_set_literal
                               {
                             _authService.signIn(email, password),
-                            Navigator.pushNamed(context, '/')
+                            Navigator.pushNamed(context, '/'),
                           },
                           child: Center(
                             child: Text(

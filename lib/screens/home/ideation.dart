@@ -1,3 +1,4 @@
+import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:day12_login/screens/main/home.dart';
 import 'package:flutter/material.dart';
@@ -213,8 +214,14 @@ class Item6 extends StatelessWidget {
   }
 }
 
-class idea extends StatelessWidget {
+class idea extends StatefulWidget {
+  @override
+  _ideaState createState() => _ideaState();
+}
+
+class _ideaState extends State<idea> {
   int _currentIndex = 0;
+
   List cardList = [
     Item1(),
     Item2(),
@@ -223,6 +230,7 @@ class idea extends StatelessWidget {
     Item5(),
     Item6(),
   ];
+
   List<T> map<T>(List list, Function handler) {
     List<T> result = [];
     for (var i = 0; i < list.length; i++) {
@@ -231,11 +239,27 @@ class idea extends StatelessWidget {
     return result;
   }
 
-  void setState(index) {
-    _currentIndex = index;
+  // void setState(index) {
+  //   _currentIndex = index;
+  // }
+
+  @override
+  void initState() {
+    super.initState();
+    BackButtonInterceptor.add(myInterceptor);
   }
 
   @override
+  void dispose() {
+    BackButtonInterceptor.remove(myInterceptor);
+    super.dispose();
+  }
+
+  bool myInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
+    Navigator.pushNamed(context, '/');
+    return true;
+  }
+
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(

@@ -1,9 +1,31 @@
+import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 
-class AboutUs extends StatelessWidget {
+class AboutUs extends StatefulWidget {
   const AboutUs({Key key}) : super(key: key);
 
   @override
+  _AboutUsState createState() => _AboutUsState();
+}
+
+class _AboutUsState extends State<AboutUs> {
+  @override
+  void initState() {
+    super.initState();
+    BackButtonInterceptor.add(myInterceptor);
+  }
+
+  @override
+  void dispose() {
+    BackButtonInterceptor.remove(myInterceptor);
+    super.dispose();
+  }
+
+  bool myInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
+    Navigator.pushNamed(context, '/');
+    return true;
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
