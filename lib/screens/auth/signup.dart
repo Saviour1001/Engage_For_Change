@@ -17,6 +17,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final AuthService _authService = AuthService();
   String email = '';
   String password = '';
+  final formkey1 = GlobalKey<FormState>();
   bool _obscureText = true;
   void _toggle() {
     setState(() {
@@ -29,7 +30,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         body: Background(
-      child: SingleChildScrollView(
+            child: SingleChildScrollView(
+      child: new Form(
+        key: formkey1,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -63,14 +66,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
             RoundedButton(
               text: "SIGNUP",
               press: () async => {
-                _authService.signUp(email, password),
-                Navigator.pushNamed(context, '/'),
+                if (formkey1.currentState.validate())
+                  {
+                    _authService.signUp(email, password),
+                    Navigator.pushNamed(context, '/'),
+                  }
               },
             ),
             Divider(),
           ],
         ),
       ),
-    ));
+    )));
   }
 }

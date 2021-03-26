@@ -94,6 +94,12 @@ class _HomeState extends State<Home> {
                     _authService.signOut();
                   },
                 ),
+                ListTile(
+                  title: Text('Chat'),
+                  onTap: () async {
+                    Navigator.pushNamed(context, '/chat');
+                  },
+                )
               ],
             ),
           ),

@@ -50,25 +50,38 @@ class _EditState extends State<Edit> {
         child: new Form(
             child: Column(
           children: [
-            FlatButton(
-              onPressed: () => getImage(0),
-              child: _profileImage == null
-                  ? Icon(Icons.person)
-                  : Image.file(
-                      _profileImage,
-                      height: 100,
-                    ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text("Add new profile photo"),
+                FlatButton(
+                  onPressed: () => getImage(0),
+                  child: _profileImage == null
+                      ? Icon(Icons.person)
+                      : Image.file(
+                          _profileImage,
+                          height: 100,
+                        ),
+                ),
+              ],
             ),
-            FlatButton(
-              onPressed: () => getImage(1),
-              child: _bannerImage == null
-                  ? Icon(Icons.person)
-                  : Image.file(
-                      _bannerImage,
-                      height: 100,
-                    ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text("Add new display image"),
+                FlatButton(
+                  onPressed: () => getImage(1),
+                  child: _bannerImage == null
+                      ? Icon(Icons.person)
+                      : Image.file(
+                          _bannerImage,
+                          height: 100,
+                        ),
+                ),
+              ],
             ),
             TextFormField(
+              decoration: InputDecoration(hintText: 'Enter your new username'),
               onChanged: (val) => setState(() {
                 name = val;
               }),

@@ -30,6 +30,8 @@ class _SignUpState extends State<SignUp> {
   final AuthService _authService = AuthService();
   String email = "";
   String password = "";
+
+  final formkey1 = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -112,62 +114,64 @@ class _SignUpState extends State<SignUp> {
                   FadeAnimation(
                       1.8,
                       Container(
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color.fromRGBO(143, 148, 251, .2),
-                                  blurRadius: 20.0,
-                                  offset: Offset(0, 10))
-                            ]),
-                        child: Column(
-                          children: <Widget>[
-                            // Container(
-                            //   padding: EdgeInsets.all(8.0),
-                            //   decoration: BoxDecoration(
-                            //       border: Border(
-                            //           bottom:
-                            //               BorderSide(color: Colors.grey[100]))),
-                            //   child: TextField(
-                            //     onChanged: (val) => setState(() {
-                            //       email = val;
-                            //     }),
-                            //     decoration: InputDecoration(
-                            //         border: InputBorder.none,
-                            //         hintText: "Email",
-                            //         hintStyle:
-                            //             TextStyle(color: Colors.grey[400])),
-                            //   ),
-                            // ),
-                            RoundedInputField(
-                              hintText: "Your Email",
-                              onChanged: (val) => setState(() {
-                                email = val;
-                              }),
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color.fromRGBO(143, 148, 251, .2),
+                                    blurRadius: 20.0,
+                                    offset: Offset(0, 10))
+                              ]),
+                          child: new Form(
+                            key: formkey1,
+                            child: Column(
+                              children: <Widget>[
+                                // Container(
+                                //   padding: EdgeInsets.all(8.0),
+                                //   decoration: BoxDecoration(
+                                //       border: Border(
+                                //           bottom:
+                                //               BorderSide(color: Colors.grey[100]))),
+                                //   child: TextField(
+                                //     onChanged: (val) => setState(() {
+                                //       email = val;
+                                //     }),
+                                //     decoration: InputDecoration(
+                                //         border: InputBorder.none,
+                                //         hintText: "Email",
+                                //         hintStyle:
+                                //             TextStyle(color: Colors.grey[400])),
+                                //   ),
+                                // ),
+                                RoundedInputField(
+                                  hintText: "Your Email",
+                                  onChanged: (val) => setState(() {
+                                    email = val;
+                                  }),
+                                ),
+                                RoundedPasswordField(
+                                  onChanged: (value) => setState(() {
+                                    password = value;
+                                  }),
+                                ),
+                                // Container(
+                                //   padding: EdgeInsets.all(8.0),
+                                //   child: TextField(
+                                //     onChanged: (val) => setState(() {
+                                //       password = val;
+                                //     }),
+                                //     decoration: InputDecoration(
+                                //         border: InputBorder.none,
+                                //         hintText: "Password",
+                                //         hintStyle:
+                                //             TextStyle(color: Colors.grey[400])),
+                                //   ),
+                                // )
+                              ],
                             ),
-                            RoundedPasswordField(
-                              onChanged: (value) => setState(() {
-                                password = value;
-                              }),
-                            ),
-                            // Container(
-                            //   padding: EdgeInsets.all(8.0),
-                            //   child: TextField(
-                            //     onChanged: (val) => setState(() {
-                            //       password = val;
-                            //     }),
-                            //     decoration: InputDecoration(
-                            //         border: InputBorder.none,
-                            //         hintText: "Password",
-                            //         hintStyle:
-                            //             TextStyle(color: Colors.grey[400])),
-                            //   ),
-                            // )
-                          ],
-                        ),
-                      )),
+                          ))),
                   SizedBox(
                     height: 30,
                   ),
@@ -186,8 +190,11 @@ class _SignUpState extends State<SignUp> {
                           onPressed: () async =>
                               // ignore: sdk_version_set_literal
                               {
-                            _authService.signIn(email, password),
-                            Navigator.pushNamed(context, '/'),
+                            if (formkey1.currentState.validate())
+                              {
+                                _authService.signIn(email, password),
+                                Navigator.pushNamed(context, '/'),
+                              }
                           },
                           child: Center(
                             child: Text(
