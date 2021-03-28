@@ -5,6 +5,7 @@ import 'package:day12_login/screens/Signup/components/background.dart';
 import 'package:day12_login/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignUpScreen extends StatefulWidget {
   SignUpScreen({Key key}) : super(key: key);
@@ -54,6 +55,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 if (isValid == true) {
                   email = val;
                 } else {
+                  // Fluttertoast.showToast(
+                  //     msg: "Enter a valid email",
+                  //     toastLength: Toast.LENGTH_SHORT,
+                  //     gravity: ToastGravity.CENTER,
+                  //     timeInSecForIosWeb: 3);
                   email = null;
                 }
               }),

@@ -46,6 +46,12 @@ class AuthService {
             gravity: ToastGravity.CENTER,
             timeInSecForIosWeb: 1);
         print('The account already exists for that email.Try another! ');
+      } else if (email == null) {
+        Fluttertoast.showToast(
+            msg: "Please use a valid email id",
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1);
       }
     } catch (e) {
       print(e);

@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
         onWillPop: _onWillPop,
         child: new Scaffold(
           appBar: AppBar(
-            backgroundColor: Color(0xff007580),
+            // backgroundColor: Color(0xff007580),
             title: Text("Home"),
           ),
           floatingActionButton: FloatingActionButton(
@@ -94,12 +94,6 @@ class _HomeState extends State<Home> {
                     _authService.signOut();
                   },
                 ),
-                ListTile(
-                  title: Text('Chat'),
-                  onTap: () async {
-                    Navigator.pushNamed(context, '/chat');
-                  },
-                )
               ],
             ),
           ),
