@@ -28,6 +28,13 @@ environment:
 #   firebase_storage: ^7.0.0
 #   image_picker: ^0.6.7
 #   flutter_launcher_icons: "^0.8.0"
+
+flutter_icons:
+  image_path: "assets/5813.png"
+  android: true
+  ios: true
+
+
 dependencies:
   flutter:
     sdk: flutter
@@ -46,6 +53,7 @@ dependencies:
   # fluttertoast: ^8.0.3
   fluttertoast: ^7.1.8
   flutter_chat: ^2.0.1
+  # flutter_launcher_icons: ^0.7.4
   
 
   cupertino_icons: ^1.0.2

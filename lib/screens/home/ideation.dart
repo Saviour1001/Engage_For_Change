@@ -305,7 +305,7 @@ class _ideaState extends State<idea> {
                 Navigator.pushNamed(context, '/');
               },
               child: Text(
-                "Skip Tutorial ",
+                "\nSkip ",
                 style: TextStyle(
                     fontStyle: FontStyle.italic,
                     fontSize: screenSize.height * (0.025),

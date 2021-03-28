@@ -139,7 +139,7 @@ class _AddState extends State<Add> {
                         },
                         cursorColor: Colors.black,
                         decoration: new InputDecoration(
-                            suffixIcon: Icon(
+                            suffixIcon: const Icon(
                                 IconData(57608, fontFamily: 'MaterialIcons')),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.0),
@@ -175,7 +175,7 @@ class _AddState extends State<Add> {
                         },
                         cursorColor: Colors.black,
                         decoration: new InputDecoration(
-                            suffixIcon: Icon(
+                            suffixIcon: const Icon(
                                 IconData(59453, fontFamily: 'MaterialIcons')),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.0),
@@ -211,7 +211,7 @@ class _AddState extends State<Add> {
                         },
                         cursorColor: Colors.black,
                         decoration: new InputDecoration(
-                            suffixIcon: Icon(
+                            suffixIcon: const Icon(
                                 IconData(59453, fontFamily: 'MaterialIcons')),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.0),
@@ -247,7 +247,7 @@ class _AddState extends State<Add> {
                         },
                         cursorColor: Colors.black,
                         decoration: new InputDecoration(
-                            suffixIcon: Icon(
+                            suffixIcon: const Icon(
                                 IconData(60190, fontFamily: 'MaterialIcons')),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.0),
@@ -283,7 +283,7 @@ class _AddState extends State<Add> {
                         },
                         cursorColor: Colors.black,
                         decoration: new InputDecoration(
-                            suffixIcon: Icon(
+                            suffixIcon: const Icon(
                                 IconData(59047, fontFamily: 'MaterialIcons')),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.0),
@@ -319,7 +319,7 @@ class _AddState extends State<Add> {
                         },
                         cursorColor: Colors.black,
                         decoration: new InputDecoration(
-                            suffixIcon: Icon(
+                            suffixIcon: const Icon(
                                 IconData(59047, fontFamily: 'MaterialIcons')),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.0),
