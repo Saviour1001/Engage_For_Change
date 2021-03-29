@@ -18,6 +18,12 @@ class _AddState extends State<Add> {
   String jobTitle = '';
   String jobDescription = '';
 
+  bool _p1 = false;
+  bool _p2 = false;
+  bool _p3 = false;
+  bool _p4 = false;
+  bool _p5 = false;
+
   Future<bool> _onWillPop() async {
     return (await showDialog(
           context: context,
@@ -340,6 +346,99 @@ class _AddState extends State<Add> {
                       ),
                       // ),
                     ),
+                    Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              child: RaisedButton(
+                                child: new Text('Education'),
+                                textColor: Colors.white,
+                                // 2
+                                color: _p1 ? Colors.blueGrey : Colors.blue,
+                                // 3
+                                onPressed: () => {
+                                  setState(() {
+                                    _p1 = !_p1;
+                                  })
+                                },
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              child: RaisedButton(
+                                child: new Text('Counselling'),
+                                textColor: Colors.white,
+                                // 2
+                                color: _p2 ? Colors.blueGrey : Colors.blue,
+                                // 3
+                                onPressed: () => {
+                                  setState(() {
+                                    _p2 = !_p2;
+                                  })
+                                },
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              child: RaisedButton(
+                                child: new Text('Health Care'),
+                                textColor: Colors.white,
+                                // 2
+                                color: _p3 ? Colors.blueGrey : Colors.blue,
+                                // 3
+                                onPressed: () => {
+                                  setState(() {
+                                    _p3 = !_p3;
+                                  })
+                                },
+                              ),
+                            )
+                          ],
+                        )),
+                    Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              child: RaisedButton(
+                                child: new Text('Youth Work'),
+                                textColor: Colors.white,
+                                // 2
+                                color: _p4 ? Colors.blueGrey : Colors.blue,
+                                // 3
+                                onPressed: () => {
+                                  setState(() {
+                                    _p4 = !_p4;
+                                  })
+                                },
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              child: RaisedButton(
+                                child: new Text('Adminstration'),
+                                textColor: Colors.white,
+                                // 2
+                                color: _p5 ? Colors.blueGrey : Colors.blue,
+                                // 3
+                                onPressed: () => {
+                                  setState(() {
+                                    _p5 = !_p5;
+                                  })
+                                },
+                              ),
+                            )
+                          ],
+                        ))
                   ],
                   //],
                 ))),
