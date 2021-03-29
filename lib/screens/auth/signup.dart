@@ -5,6 +5,7 @@ import 'package:day12_login/screens/Signup/components/background.dart';
 import 'package:day12_login/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SignUpScreen extends StatefulWidget {
   SignUpScreen({Key key}) : super(key: key);
@@ -17,6 +18,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final AuthService _authService = AuthService();
   String email = '';
   String password = '';
+  final formkey1 = GlobalKey<FormState>();
   bool _obscureText = true;
   void _toggle() {
     setState(() {
@@ -29,7 +31,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         body: Background(
-      child: SingleChildScrollView(
+            child: SingleChildScrollView(
+      child: new Form(
+        key: formkey1,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -51,6 +55,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 if (isValid == true) {
                   email = val;
                 } else {
+                  // Fluttertoast.showToast(
+                  //     msg: "Enter a valid email",
+                  //     toastLength: Toast.LENGTH_SHORT,
+                  //     gravity: ToastGravity.CENTER,
+                  //     timeInSecForIosWeb: 3);
                   email = null;
                 }
               }),
@@ -63,14 +72,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
             RoundedButton(
               text: "SIGNUP",
               press: () async => {
-                _authService.signUp(email, password),
-                Navigator.pushNamed(context, '/'),
+                if (formkey1.currentState.validate())
+                  {
+                    _authService.signUp(email, password),
+                    Navigator.pushNamed(context, '/'),
+                  }
               },
             ),
             Divider(),
           ],
         ),
       ),
-    ));
+    )));
   }
 }

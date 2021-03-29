@@ -1,6 +1,7 @@
 import 'package:day12_login/screens/home/ideation.dart';
 import 'package:day12_login/screens/main/aboutUs.dart';
 import 'package:day12_login/screens/main/posts/magnified.dart';
+// import 'package:day12_login/services/chat.dart';
 import 'package:day12_login/services/feed1.dart';
 import 'package:flutter/material.dart';
 import 'package:day12_login/models/user.dart';
@@ -41,6 +42,7 @@ class Wrapper extends StatelessWidget {
         '/aboutUs': (context) => AboutUs(),
         '/exp': (context) => LoadDataFromFirestore(),
         '/explain': (context) => idea(),
+        // '/chat': (context) => Chat(),
       },
     );
   }

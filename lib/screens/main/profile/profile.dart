@@ -134,4 +134,32 @@ class _ProfileState extends State<Profile> {
               body: ListPosts()),
         )));
   }
+  // Widget build(BuildContext context) {
+  //   final String uid = ModalRoute.of(context).settings.arguments;
+  //   return MultiProvider(
+  //     providers: [
+  //       StreamProvider.value(
+  //         value: _userService.isFollowing(
+  //             FirebaseAuth.instance.currentUser.uid, uid),
+  //       ),
+  //       StreamProvider.value(
+  //         value: _postService.getPostsByUser(uid),
+  //       ),
+  //       StreamProvider.value(
+  //         value: _userService.getUserInfo(uid),
+  //       )
+  //     ],
+  //     child: Scaffold(
+  //       body: new Stack(
+  //         children: <Widget>[
+  //           new Image.network(
+  //             Provider.of<UserModel>(context).bannerImageUrl ?? '',
+  //             fit: BoxFit.fitHeight,
+  //             height: 130,
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 }

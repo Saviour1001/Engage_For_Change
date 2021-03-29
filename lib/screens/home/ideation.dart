@@ -29,7 +29,8 @@ class Item1 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/ideation_images/1.png',
-              height: screenSize.height * (0.9),
+              height: screenSize.height * (0.75),
+              // width: screenSize.width* (1),
               fit: BoxFit.cover,
             )
           ],
@@ -64,7 +65,7 @@ class Item2 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/ideation_images/2.png',
-              height: screenSize.height * (0.9),
+              height: screenSize.height * (0.75),
               fit: BoxFit.cover,
             )
           ],
@@ -99,7 +100,7 @@ class Item3 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/ideation_images/3.png',
-              height: screenSize.height * (0.9),
+              height: screenSize.height * (0.75),
               fit: BoxFit.cover,
             )
           ],
@@ -134,7 +135,7 @@ class Item4 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/explainer/1.png',
-              height: screenSize.height * (0.9),
+              height: screenSize.height * (0.75),
               fit: BoxFit.cover,
             )
           ],
@@ -169,7 +170,7 @@ class Item5 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/explainer/2.png',
-              height: screenSize.height * (0.9),
+              height: screenSize.height * (0.75),
               fit: BoxFit.cover,
             )
           ],
@@ -204,7 +205,7 @@ class Item6 extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/explainer/3.png',
-              height: screenSize.height * (0.9),
+              height: screenSize.height * (0.75),
               fit: BoxFit.cover,
             )
           ],
@@ -269,9 +270,10 @@ class _ideaState extends State<idea> {
       // ),
       body: Column(
         children: <Widget>[
+          SizedBox(height: screenSize.height * (0.1)),
           CarouselSlider(
             options: CarouselOptions(
-              height: screenSize.height * (0.9),
+              height: screenSize.height * (0.75),
               autoPlay: true,
               autoPlayAnimationDuration: Duration(milliseconds: 500),
               autoPlayInterval: Duration(seconds: 3),
@@ -303,10 +305,10 @@ class _ideaState extends State<idea> {
                 Navigator.pushNamed(context, '/');
               },
               child: Text(
-                "Skip Tutorial ",
+                "\nSkip ",
                 style: TextStyle(
                     fontStyle: FontStyle.italic,
-                    fontSize: screenSize.height * (0.04),
+                    fontSize: screenSize.height * (0.025),
                     fontWeight: FontWeight.bold),
               )),
         ],

@@ -15,8 +15,8 @@ class Item1 extends StatelessWidget {
               1
             ],
             colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
+              Color(0xffDEC4D6),
+              Color(0xffB8E0F6),
             ]),
       ),
       child: Column(
@@ -47,8 +47,8 @@ class Item2 extends StatelessWidget {
               1
             ],
             colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
+              Color(0xffDEC4D6),
+              Color(0xffB8E0F6),
             ]),
       ),
       child: Column(
@@ -79,8 +79,8 @@ class Item3 extends StatelessWidget {
               1
             ],
             colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
+              Color(0xffDEC4D6),
+              Color(0xffB8E0F6),
             ]),
       ),
       child: Column(
@@ -111,8 +111,8 @@ class Item4 extends StatelessWidget {
               1
             ],
             colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
+              Color(0xffDEC4D6),
+              Color(0xffB8E0F6),
             ]),
       ),
       child: Column(
@@ -143,8 +143,8 @@ class Item5 extends StatelessWidget {
               1
             ],
             colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
+              Color(0xffDEC4D6),
+              Color(0xffB8E0F6),
             ]),
       ),
       child: Column(
@@ -175,8 +175,8 @@ class Item6 extends StatelessWidget {
               1
             ],
             colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
+              Color(0xffDEC4D6),
+              Color(0xffB8E0F6),
             ]),
       ),
       child: Column(
@@ -207,8 +207,8 @@ class Item7 extends StatelessWidget {
               1
             ],
             colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
+              Color(0xffDEC4D6),
+              Color(0xffB8E0F6),
             ]),
       ),
       child: Column(
@@ -239,8 +239,8 @@ class Item8 extends StatelessWidget {
               1
             ],
             colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
+              Color(0xffDEC4D6),
+              Color(0xffB8E0F6),
             ]),
       ),
       child: Column(
@@ -271,8 +271,8 @@ class Item9 extends StatelessWidget {
               1
             ],
             colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
+              Color(0xffDEC4D6),
+              Color(0xffB8E0F6),
             ]),
       ),
       child: Column(

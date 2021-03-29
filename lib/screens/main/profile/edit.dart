@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:day12_login/services/user.dart';
@@ -38,6 +39,12 @@ class _EditState extends State<Edit> {
         actions: [
           FlatButton(
               onPressed: () async {
+                Fluttertoast.showToast(
+                    msg:
+                        "Updating your profile!! Get yourself a coffee till then ?",
+                    toastLength: Toast.LENGTH_LONG,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1);
                 await _userService.updateProfile(
                     _bannerImage, _profileImage, name);
                 Navigator.pop(context);
@@ -50,25 +57,38 @@ class _EditState extends State<Edit> {
         child: new Form(
             child: Column(
           children: [
-            FlatButton(
-              onPressed: () => getImage(0),
-              child: _profileImage == null
-                  ? Icon(Icons.person)
-                  : Image.file(
-                      _profileImage,
-                      height: 100,
-                    ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text("Add new profile photo"),
+                FlatButton(
+                  onPressed: () => getImage(0),
+                  child: _profileImage == null
+                      ? Icon(Icons.person)
+                      : Image.file(
+                          _profileImage,
+                          height: 100,
+                        ),
+                ),
+              ],
             ),
-            FlatButton(
-              onPressed: () => getImage(1),
-              child: _bannerImage == null
-                  ? Icon(Icons.person)
-                  : Image.file(
-                      _bannerImage,
-                      height: 100,
-                    ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text("Add new display image"),
+                FlatButton(
+                  onPressed: () => getImage(1),
+                  child: _bannerImage == null
+                      ? Icon(Icons.person)
+                      : Image.file(
+                          _bannerImage,
+                          height: 100,
+                        ),
+                ),
+              ],
             ),
             TextFormField(
+              decoration: InputDecoration(hintText: 'Enter your new username'),
               onChanged: (val) => setState(() {
                 name = val;
               }),

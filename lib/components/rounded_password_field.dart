@@ -17,7 +17,8 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
-      child: TextField(
+      child: TextFormField(
+        validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
         obscureText: true,
         onChanged: widget.onChanged,
         cursorColor: kPrimaryColor,

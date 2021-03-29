@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:day12_login/screens/home/items.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 class LoadDataFromFirestore extends StatefulWidget {
   @override
@@ -33,15 +34,21 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
   var index = 0;
   String colourGiver() {
     var colours = [
-      "0xff845ec2",
-      "0xffffe227",
-      "0xff64dfdf",
-      "0xfff58634",
-      "0xffff577f",
-      "0xffff4646",
-      "0xfff9f871",
+      // "0xffd81860",
+      "0xffffa830",
+      "0xffDEDCE4",
+      "0xffff6048",
+      "0xff8FA2A6",
+      "0xffF9968B",
+      // "0xffAAD9CD",
+      "0xff2CCED2",
+      // "0xffFEC7BC",
+      "0xffB8A390",
+      "0xff30a8a8",
+      "0xffF5BFD2",
+      "0xff82B2B8",
     ];
-    if (index >= 6) {
+    if (index >= 9) {
       index = 0;
     } else {
       index++;
@@ -57,7 +64,7 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
           child: ListView.builder(
             primary: false,
             itemCount: querySnapshot.docs.length,
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(0),
             itemBuilder: (context, i) {
               return Column(
                 children: [
@@ -91,64 +98,100 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
                                       child: Column(
                                         children: [
                                           Padding(
-                                            padding: EdgeInsets.all(10),
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
+                                            padding: EdgeInsets.only(top: 10),
+                                          ),
+                                          IntrinsicHeight(
+                                            child: Stack(
                                               children: [
-                                                Text(
-                                                  "Org Name:  ${querySnapshot.docs[i].data()['Organization Name']}",
-                                                  textAlign: TextAlign.justify,
-                                                  style: TextStyle(
-                                                      fontSize: 15.0,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                                Align(
+                                                  child: Text(
+                                                    "${querySnapshot.docs[i].data()['Organization Name']} \n",
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        fontSize: 15.0,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
                                                 ),
-                                                Text(
-                                                  "Contact: ${querySnapshot.docs[i].data()['Organization Contact']}",
-                                                  style: TextStyle(
-                                                      fontSize: 15.0,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                Text(
-                                                  "State: ${querySnapshot.docs[i].data()['State']} ",
-                                                  style: TextStyle(
-                                                      fontSize: 15.0,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                Text(
-                                                  "City: ${querySnapshot.docs[i].data()['City']} ",
-                                                  style: TextStyle(
-                                                      fontSize: 15.0,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                Text(
-                                                  "Address: ${querySnapshot.docs[i].data()['Address']}",
-                                                  style: TextStyle(
-                                                      fontSize: 15.0,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                Text(
-                                                  "${querySnapshot.docs[i].data()['Job Title']}",
-                                                  style: TextStyle(
-                                                      fontSize: 15.0,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                Text(
-                                                  "Description: ${querySnapshot.docs[i].data()['Job Description']}",
-                                                  style: TextStyle(
-                                                      fontSize: 15.0,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                )
+                                                Positioned(
+                                                    right: 0,
+                                                    child: MaterialButton(
+                                                      child: Icon(Icons.share),
+                                                      onPressed: () {
+                                                        Share.share(
+                                                            "${querySnapshot.docs[i].data()['Job Title']} \n Contact: ${querySnapshot.docs[i].data()['Organization Contact']} \n${querySnapshot.docs[i].data()['Job Description']}");
+                                                      },
+                                                    )),
                                               ],
                                             ),
-                                          )
+                                          ),
+                                          Padding(
+                                              padding: EdgeInsets.only(
+                                                  top: 10,
+                                                  bottom: 20,
+                                                  left: 10,
+                                                  right: 10),
+                                              child: Container(
+                                                alignment: Alignment.centerLeft,
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      "${querySnapshot.docs[i].data()['Job Title']}",
+                                                      // textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                        fontSize: 15.0,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "Contact: ${querySnapshot.docs[i].data()['Organization Contact']}",
+                                                      textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                        fontSize: 15.0,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "State: ${querySnapshot.docs[i].data()['State']} ",
+                                                      textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                        fontSize: 15.0,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "City: ${querySnapshot.docs[i].data()['City']} ",
+                                                      textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                        fontSize: 15.0,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "Address: ${querySnapshot.docs[i].data()['Address']}",
+                                                      textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                        fontSize: 15.0,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "Description: ${querySnapshot.docs[i].data()['Job Description']}",
+                                                      // textAlign: TextAlign.left,
+                                                      style: TextStyle(
+                                                        fontSize: 15.0,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              )),
+                                          // Padding(
+                                          //   padding: EdgeInsets.only(bottom: 5),
+                                          //   child: Container(
+                                          //       child: FlatButton(
+                                          //           textColor: Colors.black,
+                                          //           child:
+                                          //               Text("Show Interest"))),
+                                          // )
                                         ],
                                       ),
                                     )),
@@ -169,6 +212,13 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
       );
     }
   }
+
+  // void share(BuildContext context) {
+  //   final RenderBox box = context.findRenderObject();
+  //   final String text = "Welcome";
+  //   Share.share(text,
+  //       sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
+  // }
 
   //get firestore instance
   getDriversList() async {
