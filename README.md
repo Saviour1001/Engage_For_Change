@@ -46,3 +46,5 @@ So give this repository a star so that you get notified of any updates :)
 - Congratulations if you made it till here. Now just connect your android emulator or your mobile device to the computer and write the following command in terminal.
 
   `flutter run`
+
+### We would love to hear your feedback. You could provide your thoughts on this idea via this [form](https://forms.gle/6TjQyk69AwaC9eWG8)
