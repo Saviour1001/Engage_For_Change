@@ -49,4 +49,8 @@ So give this repository a star so that you get notified of any updates :)
 
   `flutter run`
 
-### We would love to hear your feedback. You could provide your thoughts on this idea via this [form](https://forms.gle/6TjQyk69AwaC9eWG8)
+### We would love to hear your feedback. You could provide your thoughts on this idea via this [form](https://forms.gle/6TjQyk69AwaC9eWG8).
+
+<p></p>
+
+![Happy Coding](https://user-images.githubusercontent.com/71517788/112990915-340e6000-9184-11eb-8b04-18044390b673.jpg)
