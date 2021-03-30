@@ -14,7 +14,11 @@ it is now to a better future.
 
 ## How to install on Android device
 
-You could find the apk in the repository. Simply download the apk and install it. The app will
+You could find the apk in the repository.
+
+File name: app-release.apk
+
+Simply download the apk and install it. The app will
 be up and running. We are always working on adding new feature for improving the performance and
 add new features. We will update the apk in the main branch of the repository.
 So give this repository a star so that you get notified of any updates :)
@@ -34,6 +38,7 @@ So give this repository a star so that you get notified of any updates :)
   `flutter packages get`
 
 - Setup Firebase
+
   The app uses Firebase as backend so you will be needing to create a Firebase project of yours and set it up to get the authentication and database services up and running.
   Its very easy, just create a new Firebase project and get a google-services.json key from there and place it in the folder project_name/android/app.
   You could refer this [video](https://youtu.be/83YsBPPwISs) to setup Firebase.
