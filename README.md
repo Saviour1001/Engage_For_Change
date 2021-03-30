@@ -17,6 +17,7 @@ it is now to a better future.
 You could find the apk in the repository.
 
 File name: app-release.apk
+
 Alternate Downloading Link : [Google Drive](https://drive.google.com/file/d/1ArhzUOc_HQZYf0E9WuStMVceh2k2zyJv/view)
 
 Simply download the apk and install it. The app will
