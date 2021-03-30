@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// This is the class of Posts made in the application and contains all the
+// necessary variables required for various services.
+
 class PostModel {
   final String id;
   final String jobDescription;

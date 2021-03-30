@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+// This file handles all the authentication services such as Log in and Sign Up.
+
 class AuthService {
   FirebaseAuth auth = FirebaseAuth.instance;
 

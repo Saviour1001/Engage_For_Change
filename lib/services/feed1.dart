@@ -3,6 +3,9 @@ import 'package:day12_login/screens/home/items.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 
+// This file fetches the data from the firestore and shows it in form of
+// visual cards.
+
 class LoadDataFromFirestore extends StatefulWidget {
   @override
   _LoadDataFromFirestoreState createState() => _LoadDataFromFirestoreState();

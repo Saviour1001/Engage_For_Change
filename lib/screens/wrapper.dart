@@ -15,6 +15,9 @@ import 'package:provider/provider.dart';
 import 'package:day12_login/screens/Welcome/welcome_screen.dart';
 import 'package:day12_login/screens/home/explain.dart';
 
+// This file maintains all the routes of navigation which are required
+// when shifting from one screen to another. All the routes are mapped below.
+
 class Wrapper extends StatelessWidget {
   const Wrapper({Key key}) : super(key: key);
 

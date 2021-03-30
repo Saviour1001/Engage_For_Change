@@ -8,6 +8,9 @@ import 'package:day12_login/models/user.dart';
 
 import 'package:day12_login/services/utils.dart';
 
+// This file is responsible for all the User related activities, such
+// as giving the feature for following someone, showing user profile etc.
+
 class UserService {
   UtilsService _utilsService = UtilsService();
 

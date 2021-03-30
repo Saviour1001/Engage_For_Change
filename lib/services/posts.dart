@@ -2,6 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:day12_login/models/post.dart';
 
+// This file is responsible for posting data from the app
+// to the firebase. It gets the value of all the variables and makes
+// a post request to send the data to the database.
+
 class PostService {
   List<PostModel> _postListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
