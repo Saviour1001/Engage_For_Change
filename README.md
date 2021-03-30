@@ -42,7 +42,7 @@ So give this repository a star so that you get notified of any updates :)
 - Setup Firebase
 
   The app uses Firebase as backend so you will be needing to create a Firebase project of yours and set it up to get the authentication and database services up and running.
-  Its very easy, just create a new Firebase project and get a google-services.json key from there and place it in the folder project_name/android/app.
+  Its very easy, just create a new Firebase project and get a google-services.json key from there and place it in the folder Engage_For_Change/android/app.
   You could refer this [video](https://youtu.be/83YsBPPwISs) to setup Firebase.
 
 - Congratulations if you made it till here. Now just connect your android emulator or your mobile device to the computer and write the following command in terminal.
