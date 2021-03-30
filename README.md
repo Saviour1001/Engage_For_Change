@@ -9,6 +9,7 @@ harsh times of Covid 19 pandemic. Its our responsibility to grow the society fro
 it is now to a better future.
 
 ![1](https://user-images.githubusercontent.com/71517788/112962731-51cbcd00-9164-11eb-8131-0bff8f4a36ef.gif)
+<&nbsp;>
 ![2](https://user-images.githubusercontent.com/71517788/112962858-732cb900-9164-11eb-8889-f46dfa02ecdb.gif)
 
 ## How to install on Android device
