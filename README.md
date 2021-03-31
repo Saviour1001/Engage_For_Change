@@ -20,7 +20,7 @@ File name: app-release.apk
 
 Alternate Downloading Link : [Google Drive](https://drive.google.com/file/d/1ArhzUOc_HQZYf0E9WuStMVceh2k2zyJv/view)
 
-Simply download the apk and install it. The app will
+Simply download the apk and install it.The app will
 be up and running. We are always working on adding new feature for improving the performance and
 add new features. We will update the apk in the main branch of the repository.
 So give this repository a star so that you get notified of any updates :)
