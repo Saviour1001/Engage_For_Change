@@ -235,9 +235,18 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
   getDriversList() async {
     return await FirebaseFirestore.instance
         .collection('Posts')
-        .orderBy('Posted On', descending: true)
+        // .where('ed', isEqualTo: true)
+        // .orderBy('Posted On', descending: true)
         // .where('arr[0]', isEqualTo: _p1 )
         // .where('arr[0]', isEqualTo: true)
+        .get();
+  }
+
+  getDriversListAsPerChoice(String st) async {
+    return await FirebaseFirestore.instance
+        .collection('Posts')
+        .where('${st}', isEqualTo: true)
+        // .orderBy('Posted On', descending: true)
         .get();
   }
 
@@ -265,6 +274,26 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
                           onPressed: () => {
                             setState(() {
                               _p1 = !_p1;
+                              _p2 = false;
+                              _p3 = false;
+                              _p4 = false;
+                              _p5 = false;
+                              print('yo');
+                              if (_p1 == true) {
+                                getDriversListAsPerChoice("ed").then((results) {
+                                  setState(() {
+                                    querySnapshot = results;
+                                  });
+                                });
+                              } else {
+                                getDriversList().then((results) {
+                                  setState(() {
+                                    querySnapshot = results;
+                                  });
+                                });
+                              }
+
+                              // getDriversListAsPerChoice();
                             })
                           },
                         ),
@@ -280,6 +309,24 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
                           onPressed: () => {
                             setState(() {
                               _p2 = !_p2;
+                              _p1 = false;
+                              _p3 = false;
+                              _p4 = false;
+                              _p5 = false;
+                              if (_p2 == true) {
+                                getDriversListAsPerChoice("co").then((results) {
+                                  setState(() {
+                                    querySnapshot = results;
+                                  });
+                                });
+                              } else {
+                                getDriversList().then((results) {
+                                  setState(() {
+                                    querySnapshot = results;
+                                  });
+                                });
+                              }
+                              // getDriversList(1);
                             })
                           },
                         ),
@@ -295,6 +342,24 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
                           onPressed: () => {
                             setState(() {
                               _p3 = !_p3;
+                              _p2 = false;
+                              _p1 = false;
+                              _p4 = false;
+                              _p5 = false;
+                              if (_p3 == true) {
+                                getDriversListAsPerChoice("hc").then((results) {
+                                  setState(() {
+                                    querySnapshot = results;
+                                  });
+                                });
+                              } else {
+                                getDriversList().then((results) {
+                                  setState(() {
+                                    querySnapshot = results;
+                                  });
+                                });
+                              }
+                              // getDriversList(2);
                             })
                           },
                         ),
@@ -310,6 +375,25 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
                           onPressed: () => {
                             setState(() {
                               _p4 = !_p4;
+                              _p3 = false;
+                              _p2 = false;
+                              _p1 = false;
+                              _p5 = false;
+                              if (_p4 == true) {
+                                getDriversListAsPerChoice("yw").then((results) {
+                                  setState(() {
+                                    querySnapshot = results;
+                                  });
+                                });
+                              } else {
+                                getDriversList().then((results) {
+                                  setState(() {
+                                    querySnapshot = results;
+                                  });
+                                });
+                              }
+
+                              // getDriversList(4);
                             })
                           },
                         ),
@@ -325,6 +409,24 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
                           onPressed: () => {
                             setState(() {
                               _p5 = !_p5;
+                              _p3 = false;
+                              _p2 = false;
+                              _p1 = false;
+                              _p4 = false;
+                              if (_p5 == true) {
+                                getDriversListAsPerChoice("ad").then((results) {
+                                  setState(() {
+                                    querySnapshot = results;
+                                  });
+                                });
+                              } else {
+                                getDriversList().then((results) {
+                                  setState(() {
+                                    querySnapshot = results;
+                                  });
+                                });
+                              }
+                              // getDriversList(4);
                             })
                           },
                         ),

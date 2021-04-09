@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:day12_login/services/posts.dart';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:flutter_chat/constants.dart';
 
 class Add extends StatefulWidget {
   Add({Key key}) : super(key: key);
@@ -23,6 +24,12 @@ class _AddState extends State<Add> {
   bool _p3 = false;
   bool _p4 = false;
   bool _p5 = false;
+
+  bool ed = false;
+  bool co = false;
+  bool hc = false;
+  bool yw = false;
+  bool ad = false;
 
   List arr = [false, false, false, false, false];
 
@@ -80,8 +87,20 @@ class _AddState extends State<Add> {
                 textColor: Colors.white,
                 onPressed: () async {
                   if (formkey1.currentState.validate()) {
-                    _postService.savePost(orgName, orgContact, State, City,
-                        Address, jobTitle, jobDescription, arr);
+                    _postService.savePost(
+                        orgName,
+                        orgContact,
+                        State,
+                        City,
+                        Address,
+                        jobTitle,
+                        jobDescription,
+                        arr,
+                        ed,
+                        co,
+                        hc,
+                        yw,
+                        ad);
                     Navigator.pop(context);
                   }
                 },
@@ -367,6 +386,7 @@ class _AddState extends State<Add> {
                                   setState(() {
                                     _p1 = !_p1;
                                     arr[0] = _p1;
+                                    ed = !ed;
                                   })
                                 },
                               ),
@@ -383,6 +403,7 @@ class _AddState extends State<Add> {
                                   setState(() {
                                     _p2 = !_p2;
                                     arr[1] = _p2;
+                                    co = !co;
                                   })
                                 },
                               ),
@@ -399,6 +420,7 @@ class _AddState extends State<Add> {
                                   setState(() {
                                     _p3 = !_p3;
                                     arr[2] = _p3;
+                                    hc = !hc;
                                   })
                                 },
                               ),
@@ -424,6 +446,7 @@ class _AddState extends State<Add> {
                                   setState(() {
                                     _p4 = !_p4;
                                     arr[3] = _p4;
+                                    yw = !yw;
                                   })
                                 },
                               ),
@@ -440,6 +463,7 @@ class _AddState extends State<Add> {
                                   setState(() {
                                     _p5 = !_p5;
                                     arr[4] = _p5;
+                                    ad = !ad;
                                   })
                                 },
                               ),

@@ -10,6 +10,12 @@ class PostModel {
   final String orgName;
   final String orgContact;
   final List arr;
+  final bool ed;
+  final bool co;
+  final bool hc;
+  final bool yw;
+  final bool ad;
+
   final Timestamp Posted_On;
   final Timestamp Apply_by;
 
@@ -23,6 +29,11 @@ class PostModel {
       this.jobTitle,
       this.jobDescription,
       this.arr,
+      this.ed,
+      this.co,
+      this.hc,
+      this.yw,
+      this.ad,
       this.Apply_by,
       this.Posted_On});
 }
