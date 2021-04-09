@@ -9,6 +9,7 @@ class PostModel {
   final String Address;
   final String orgName;
   final String orgContact;
+  final List arr;
   final Timestamp Posted_On;
   final Timestamp Apply_by;
 
@@ -21,6 +22,7 @@ class PostModel {
       this.Address,
       this.jobTitle,
       this.jobDescription,
+      this.arr,
       this.Apply_by,
       this.Posted_On});
 }

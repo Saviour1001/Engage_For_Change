@@ -11,6 +11,11 @@ class LoadDataFromFirestore extends StatefulWidget {
 class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
   QuerySnapshot querySnapshot;
 
+  bool _p1 = false;
+  bool _p2 = false;
+  bool _p3 = false;
+  bool _p4 = false;
+  bool _p5 = false;
   @override
   void initState() {
     super.initState();
@@ -36,8 +41,8 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
     var colours = [
       // "0xffd81860",
       "0xffffa830",
-      "0xffDEDCE4",
-      "0xffff6048",
+      // "0xffDEDCE4",
+      // "0xffff6048",
       "0xff8FA2A6",
       "0xffF9968B",
       // "0xffAAD9CD",
@@ -48,7 +53,7 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
       "0xffF5BFD2",
       "0xff82B2B8",
     ];
-    if (index >= 9) {
+    if (index >= 7) {
       index = 0;
     } else {
       index++;
@@ -66,6 +71,12 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
             itemCount: querySnapshot.docs.length,
             padding: EdgeInsets.all(0),
             itemBuilder: (context, i) {
+              // bool k = querySnapshot.docs[i].data()['arr[0]'];
+              // if(k==true)
+              // {
+              //   continue;
+              // }
+              // print(k);
               return Column(
                 children: [
                   items(),
@@ -225,13 +236,108 @@ class _LoadDataFromFirestoreState extends State<LoadDataFromFirestore> {
     return await FirebaseFirestore.instance
         .collection('Posts')
         .orderBy('Posted On', descending: true)
+        // .where('arr[0]', isEqualTo: _p1 )
+        // .where('arr[0]', isEqualTo: true)
         .get();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _showDrivers(),
-    );
+        body: Padding(
+            padding: EdgeInsets.all(0),
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 0.0),
+                  height: 40.0,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        child: RaisedButton(
+                          child: new Text('Education'),
+                          textColor: Colors.black,
+
+                          color: _p1 ? Colors.blueGrey[100] : Colors.blue[100],
+                          // 3
+                          onPressed: () => {
+                            setState(() {
+                              _p1 = !_p1;
+                            })
+                          },
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        child: RaisedButton(
+                          child: new Text('Counselling'),
+                          textColor: Colors.black,
+
+                          color: _p2 ? Colors.blueGrey[100] : Colors.blue[100],
+                          // 3
+                          onPressed: () => {
+                            setState(() {
+                              _p2 = !_p2;
+                            })
+                          },
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        child: RaisedButton(
+                          child: new Text('Health Care'),
+                          textColor: Colors.black,
+
+                          color: _p3 ? Colors.blueGrey[100] : Colors.blue[100],
+                          // 3
+                          onPressed: () => {
+                            setState(() {
+                              _p3 = !_p3;
+                            })
+                          },
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        child: RaisedButton(
+                          child: new Text('Youth Work'),
+                          textColor: Colors.black,
+
+                          color: _p4 ? Colors.blueGrey[100] : Colors.blue[100],
+                          // 3
+                          onPressed: () => {
+                            setState(() {
+                              _p4 = !_p4;
+                            })
+                          },
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        child: RaisedButton(
+                          child: new Text('Administration'),
+                          textColor: Colors.black,
+
+                          color: _p5 ? Colors.blueGrey[100] : Colors.blue[100],
+                          // 3
+                          onPressed: () => {
+                            setState(() {
+                              _p5 = !_p5;
+                            })
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                //
+                Container(
+                  height: 630,
+                  child: _showDrivers(),
+                )
+              ],
+            )));
   }
 }

@@ -14,12 +14,13 @@ class PostService {
         Address: doc.data()['Address'] ?? '',
         jobTitle: doc.data()['Job Title'] ?? '',
         jobDescription: doc.data()['Job Description'] ?? '',
+        arr: doc.data()['arr'] ?? '',
       );
     }).toList();
   }
 
   Future savePost(orgName, orgContact, State, City, Address, jobTitle,
-      jobDescription) async {
+      jobDescription, arr) async {
     await FirebaseFirestore.instance.collection("Posts").add({
       'Organization Name': orgName,
       'Organization Contact': orgContact,
@@ -28,6 +29,7 @@ class PostService {
       'Address': Address,
       'Job Title': jobTitle,
       'Job Description': jobDescription,
+      'arr': arr,
       'Posted On': FieldValue.serverTimestamp(),
       'Apply by': FieldValue.serverTimestamp(),
       'User_id': FirebaseAuth.instance.currentUser.uid,

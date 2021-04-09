@@ -24,6 +24,8 @@ class _AddState extends State<Add> {
   bool _p4 = false;
   bool _p5 = false;
 
+  List arr = [false, false, false, false, false];
+
   Future<bool> _onWillPop() async {
     return (await showDialog(
           context: context,
@@ -79,7 +81,7 @@ class _AddState extends State<Add> {
                 onPressed: () async {
                   if (formkey1.currentState.validate()) {
                     _postService.savePost(orgName, orgContact, State, City,
-                        Address, jobTitle, jobDescription);
+                        Address, jobTitle, jobDescription, arr);
                     Navigator.pop(context);
                   }
                 },
@@ -364,6 +366,7 @@ class _AddState extends State<Add> {
                                 onPressed: () => {
                                   setState(() {
                                     _p1 = !_p1;
+                                    arr[0] = _p1;
                                   })
                                 },
                               ),
@@ -379,6 +382,7 @@ class _AddState extends State<Add> {
                                 onPressed: () => {
                                   setState(() {
                                     _p2 = !_p2;
+                                    arr[1] = _p2;
                                   })
                                 },
                               ),
@@ -394,6 +398,7 @@ class _AddState extends State<Add> {
                                 onPressed: () => {
                                   setState(() {
                                     _p3 = !_p3;
+                                    arr[2] = _p3;
                                   })
                                 },
                               ),
@@ -418,6 +423,7 @@ class _AddState extends State<Add> {
                                 onPressed: () => {
                                   setState(() {
                                     _p4 = !_p4;
+                                    arr[3] = _p4;
                                   })
                                 },
                               ),
@@ -433,6 +439,7 @@ class _AddState extends State<Add> {
                                 onPressed: () => {
                                   setState(() {
                                     _p5 = !_p5;
+                                    arr[4] = _p5;
                                   })
                                 },
                               ),
