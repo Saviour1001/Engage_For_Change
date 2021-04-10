@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
-// This file gives the utility to upload files to the firebase storage.
 class UtilsService {
   Future<String> uploadFile(File _image, String path) async {
     firebase_storage.Reference storageReference =

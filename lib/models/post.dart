@@ -1,8 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-// This is the class of Posts made in the application and contains all the
-// necessary variables required for various services.
-
 class PostModel {
   final String id;
   final String jobDescription;
@@ -12,6 +9,13 @@ class PostModel {
   final String Address;
   final String orgName;
   final String orgContact;
+  final List arr;
+  final bool ed;
+  final bool co;
+  final bool hc;
+  final bool yw;
+  final bool ad;
+
   final Timestamp Posted_On;
   final Timestamp Apply_by;
 
@@ -24,6 +28,12 @@ class PostModel {
       this.Address,
       this.jobTitle,
       this.jobDescription,
+      this.arr,
+      this.ed,
+      this.co,
+      this.hc,
+      this.yw,
+      this.ad,
       this.Apply_by,
       this.Posted_On});
 }

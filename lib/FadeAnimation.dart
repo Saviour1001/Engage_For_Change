@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
-// The purpose of this file is to generate the animation of the login and sign up screen.
 class FadeAnimation extends StatelessWidget {
   final double delay;
   final Widget child;

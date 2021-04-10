@@ -1,4 +1,3 @@
-// This is the class used for each user of the application.
 class UserModel {
   final String id;
   final String bannerImageUrl;
